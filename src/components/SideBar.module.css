@@ -1,0 +1,36 @@
+@import "../index.css";
+#component {
+  min-width: 200px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--base-color);
+  border-right: 2px solid white;
+  padding: 12px;
+}
+
+.dbSection {
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding: 4px;
+  width: 100%;
+  background-color: var(--base-tertiary);
+}
+
+.dbSection:hover {
+  background: var(--accent-color);
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+}

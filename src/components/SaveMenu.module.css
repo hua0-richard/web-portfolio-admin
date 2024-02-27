@@ -1,0 +1,17 @@
+#component {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--accent-color);
+}
+
+#controlsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+#resetButton {
+}
+
+#saveButton {
+}
