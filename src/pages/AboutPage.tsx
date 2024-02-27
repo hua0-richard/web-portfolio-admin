@@ -19,12 +19,12 @@ export function AboutPage() {
   return load ? (
     <div className={styles.container}>
       {data.about.map((d) => (
-        <div style={{ width: "300px" }}>
+        <div style={{ width: "100%" }}>
           {Object.entries(d).map(([k, v]) => (
-            <div style={{ width: "600px", color: "white" }}>
+            <div style={{ width: "100%", color: "white" }}>
               {k !== "_id" ? (
-                <div style={{ display: "flex" }}>
-                  <div>{k}</div>:<textarea>{v}</textarea>
+                <div style={{ display: "flex", padding: "8px" }}>
+                  <div style={{width: "25%"}}>{k}</div><textarea wrap="hard" style={{width: "75%"}}>{v}</textarea>
                 </div>
               ) : (
                 <></>
