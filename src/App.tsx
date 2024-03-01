@@ -27,6 +27,7 @@ export default function App() {
           <Routes>
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/experiences" element={<ExperiencesPage />}/>
           </Routes>
         </div>
         <SaveMenu></SaveMenu>

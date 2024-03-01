@@ -1,10 +1,11 @@
+import styles from "./Page.module.css"
 import { useEffect, useState } from "react";
 
 export function ExperiencesPage() {
     const [load, setLoad] = useState(false);
     const [data, setData] = useState();
     useEffect(() => {
-        fetch("http://localhost:8000/user/experiences")
+        fetch("http://localhost:8000/user/experience")
           .then((res) => {
             return res.json();
           })
@@ -14,5 +15,26 @@ export function ExperiencesPage() {
             setLoad(true);
           });
       }, []);
-    return <></>
+    return (    
+      load ? 
+    <div className={styles.container}>
+
+      {data.experience.map((d) => (
+        <div style={{ width: "100%", border: "1px solid black", margin: "8px", borderRadius: "8px", backgroundColor: "orange"}}>
+          <div>three dots</div>
+          {Object.entries(d).map(([k, v]) => (
+            <div style={{ width: "100%", color: "white" }}>
+              {k !== "_id" ? (
+                <div style={{ display: "flex", padding: "8px" }}>
+                  <div style={{width: "25%"}}>{k}</div><textarea wrap="hard" style={{width: "75%"}}>{v}</textarea>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+          ))}
+
+        </div>
+      ))}
+    </div> :  <></>)
 }
