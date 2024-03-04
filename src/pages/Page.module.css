@@ -1,11 +1,21 @@
 .container {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: var(--base-color);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--base-color);
+}
+
+.container:hover {
+    .trashContainer {
+        display: flex;
+    }
 }
 
 .textAreaContainer {
+}
+
+.trashContainer {
+    display: none;
 }

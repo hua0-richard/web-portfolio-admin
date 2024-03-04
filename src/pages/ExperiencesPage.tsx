@@ -1,5 +1,6 @@
 import styles from "./Page.module.css";
 import { useEffect, useState } from "react";
+import { EditArea } from "../components/EditArea.tsx";
 
 export function ExperiencesPage() {
   const [load, setLoad] = useState(false);
@@ -27,21 +28,7 @@ export function ExperiencesPage() {
             backgroundColor: "orange",
           }}
         >
-          <div>three dots</div>
-          {Object.entries(d).map(([k, v]) => (
-            <div style={{ width: "100%", color: "white" }}>
-              {k !== "_id" ? (
-                <div style={{ display: "flex", padding: "8px" }}>
-                  <div style={{ width: "25%" }}>{k}</div>
-                  <textarea wrap="hard" style={{ width: "75%" }}>
-                    {v}
-                  </textarea>
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-          ))}
+          <EditArea obj={d} />
         </div>
       ))}
     </div>
