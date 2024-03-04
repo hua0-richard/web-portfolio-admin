@@ -24,7 +24,10 @@ export function AboutPage() {
             <div style={{ width: "100%", color: "white" }}>
               {k !== "_id" ? (
                 <div style={{ display: "flex", padding: "8px" }}>
-                  <div style={{width: "25%"}}>{k}</div><textarea wrap="hard" style={{width: "75%"}}>{v}</textarea>
+                  <div style={{ width: "25%" }}>{k}</div>
+                  <textarea wrap="hard" style={{ width: "75%" }}>
+                    {v}
+                  </textarea>
                 </div>
               ) : (
                 <></>

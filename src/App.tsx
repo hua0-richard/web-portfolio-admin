@@ -1,8 +1,8 @@
 import { SideBar } from "./components/SideBar.tsx";
 import { AboutPage } from "./pages/AboutPage.tsx";
-import { EducationPage} from "./pages/EducationPage.tsx"
+import { EducationPage } from "./pages/EducationPage.tsx";
 import { ExperiencesPage } from "./pages/ExperiencesPage.tsx";
-import { ProjectsPage } from "./pages/ProjectsPage.tsx"
+import { ProjectsPage } from "./pages/ProjectsPage.tsx";
 import { BreadCrumbs } from "./components/BreadCrumbs.tsx";
 import { SaveMenu } from "./components/SaveMenu.tsx";
 import { LoginPage } from "./pages/LoginPage.tsx";
@@ -27,7 +27,7 @@ export default function App() {
           <Routes>
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/experiences" element={<ExperiencesPage />}/>
+            <Route path="/experiences" element={<ExperiencesPage />} />
           </Routes>
         </div>
         <SaveMenu></SaveMenu>
