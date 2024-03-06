@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Page.module.css";
+import { EditArea } from "../components/EditArea";
 
 export function AboutPage() {
   const [load, setLoad] = useState(false);
@@ -19,22 +20,7 @@ export function AboutPage() {
   return load ? (
     <div className={styles.container}>
       {data.about.map((d) => (
-        <div style={{ width: "100%" }}>
-          {Object.entries(d).map(([k, v]) => (
-            <div style={{ width: "100%", color: "white" }}>
-              {k !== "_id" ? (
-                <div style={{ display: "flex", padding: "8px" }}>
-                  <div style={{ width: "25%" }}>{k}</div>
-                  <textarea wrap="hard" style={{ width: "75%" }}>
-                    {v}
-                  </textarea>
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-          ))}
-        </div>
+        <EditArea obj={d} />
       ))}
     </div>
   ) : (

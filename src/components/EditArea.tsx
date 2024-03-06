@@ -1,22 +1,26 @@
+import { useEffect } from "react";
+import { FaTrash } from "react-icons/fa";
+import styles from "./EditArea.module.css";
+
 export function EditArea({ obj }: { obj: object }) {
+  useEffect(() => {
+    console.log(obj);
+  }, []);
   return (
-    <div
-      style={{
-        minHeight: "300px",
-        minWidth: "60px",
-        backgroundColor: "red",
-      }}
-    >
-      {Object.entries(obj).map(([key, value]) => {
+    <div id={styles.component}>
+      <div id={styles.delete}>
+        <FaTrash />
+      </div>
+      {Object.entries(obj).map(([key, value]) =>
         key !== "_id" ? (
           <div>
             <div>{key}</div>
             <textarea>{value}</textarea>
           </div>
         ) : (
-          <>null</>
-        );
-      })}
+          <></>
+        ),
+      )}
     </div>
   );
 }
