@@ -13,9 +13,9 @@ export function EditArea({ obj }: { obj: object }) {
       </div>
       {Object.entries(obj).map(([key, value]) =>
         key !== "_id" ? (
-          <div>
-            <div>{key}</div>
-            <textarea>{value}</textarea>
+          <div className={styles.editContainer}>
+            <div className={styles.editLabel}>{key}</div>
+            <textarea className={styles.editTextArea}>{value}</textarea>
           </div>
         ) : (
           <></>

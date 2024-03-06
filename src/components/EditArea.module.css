@@ -2,8 +2,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    background: var(--accent-color);
+    align-items: center;
+    width: 100%;
 }
 
 #component:hover {
@@ -18,4 +18,23 @@
     position: absolute;
     top: 0px;
     right: 0px;
+}
+
+.editContainer {
+    background: var(--accent-color);
+    padding: 4px;
+    border-radius: 4;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.editLabel {
+    width: 20%;
+}
+
+.editTextArea {
+    width: 80%;
 }
