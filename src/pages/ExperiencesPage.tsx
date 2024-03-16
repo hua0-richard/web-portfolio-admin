@@ -18,6 +18,7 @@ export function ExperiencesPage() {
   }, []);
   return load ? (
     <div className={styles.container}>
+      <div>Add</div>
       {data.experience.map((d) => (
         <div
           style={{

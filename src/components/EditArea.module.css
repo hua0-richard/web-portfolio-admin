@@ -38,4 +38,14 @@
 
 .editTextArea {
   width: 50%;
+  font-family: monospace;
+}
+
+.editPreview {
+  font-size: 14px;
+  font-family: monospace;
+}
+
+.orderContainer {
+  display: flex;
 }

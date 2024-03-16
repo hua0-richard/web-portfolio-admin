@@ -4,7 +4,6 @@ import { EducationPage } from "./pages/EducationPage.tsx";
 import { ExperiencesPage } from "./pages/ExperiencesPage.tsx";
 import { ProjectsPage } from "./pages/ProjectsPage.tsx";
 import { BreadCrumbs } from "./components/BreadCrumbs.tsx";
-import { SaveMenu } from "./components/SaveMenu.tsx";
 import { LoginPage } from "./pages/LoginPage.tsx";
 
 import "./App.css";
@@ -30,7 +29,6 @@ export default function App() {
             <Route path="/experiences" element={<ExperiencesPage />} />
           </Routes>
         </div>
-        <SaveMenu></SaveMenu>
       </div>
     </div>
   );
