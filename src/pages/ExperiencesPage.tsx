@@ -19,7 +19,7 @@ export function ExperiencesPage() {
   }, []);
 
   function addExperience() {
-    setData({ experience: [...data.experience, { test: "def" }] });
+    setData({ experience: [...data.experience, { position: "", organisation: "", date: "", description: ""}]});
   }
 
   return load ? (
