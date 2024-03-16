@@ -1,6 +1,7 @@
 import styles from "./Page.module.css";
 import { useEffect, useState } from "react";
 import { EditArea } from "../components/EditArea.tsx";
+import { IoIosAddCircle } from "react-icons/io";
 
 export function ExperiencesPage() {
   const [load, setLoad] = useState(false);
@@ -16,9 +17,35 @@ export function ExperiencesPage() {
         setLoad(true);
       });
   }, []);
+
+  function addExperience() {
+    setData({ experience: [...data.experience, { test: "def" }] });
+  }
+
   return load ? (
     <div className={styles.container}>
-      <div>Add</div>
+      <div>
+        <button
+          onClick={addExperience}
+          style={{
+            background: "green",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            padding: "4px",
+            fontSize: "14px",
+            width: "65px",
+            borderRadius: "4px",
+          }}
+        >
+          <div
+            style={{ display: "flex", alignItems: "center", color: "#90EE90" }}
+          >
+            <IoIosAddCircle />
+          </div>
+          Add
+        </button>
+      </div>
       {data.experience.map((d) => (
         <div
           style={{

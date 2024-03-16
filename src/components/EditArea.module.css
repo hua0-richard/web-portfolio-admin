@@ -49,3 +49,12 @@
 .orderContainer {
   display: flex;
 }
+
+.orderControls {
+  margin: 4px;
+  font-size: 18px;
+}
+
+.orderControls:hover {
+  color: red;
+}
