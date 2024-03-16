@@ -1,5 +1,5 @@
 import styles from "./Page.module.css";
-import { useEffect, useState, Component } from "react";
+import { useEffect, useState } from "react";
 import { EditArea } from "../components/EditArea.tsx";
 import { IoIosAddCircle } from "react-icons/io";
 
@@ -64,6 +64,12 @@ export function ExperiencesPage() {
             <IoIosAddCircle />
           </div>
           Add
+        </button>
+        <button>
+          Save
+        </button>
+        <button>
+          Cancel
         </button>
       </div>
       {data.experience.map((d, index) => (
