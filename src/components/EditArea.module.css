@@ -20,7 +20,7 @@
 }
 
 .editContainer {
-width: 100%;
+  width: 100%;
   background: var(--accent-color);
   margin-top: 4px;
   margin-bottom: 4px;
@@ -28,10 +28,14 @@ width: 100%;
   justify-content: flex-start;
 }
 
+.editContainer:hover {
+  background-color: red;
+}
+
 .editLabel {
   width: 20%;
 }
 
 .editTextArea {
-    width: 50%;
+  width: 50%;
 }

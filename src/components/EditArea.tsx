@@ -3,22 +3,40 @@ import { FaTrash } from "react-icons/fa";
 import styles from "./EditArea.module.css";
 
 export function EditArea({ obj }: { obj: object }) {
-  const backup = obj;
   const [data, setData] = useState(obj);
+  const [uiFlag, setUiFlag] = useState(createArray(Object.keys(obj).length));
   const [edited, setEdited] = useState(false);
   useEffect(() => {
     console.log(obj);
   }, []);
 
+  function createArray(length: number) {
+    return Array.from({ length }, () => false);
+  }
+
+  function handleEdit(index: number) {
+    const updateUiFlag = [...uiFlag];
+    updateUiFlag[index] = !updateUiFlag[index];
+    setUiFlag(updateUiFlag);
+    console.log(index);
+  }
+
   function handleChange(e) {
     console.log(e.target.id);
     setData({ ...data, [e.target.id]: e.target.event });
-    setEdited(true)
+    setEdited(true);
   }
 
   function handleCancel() {
-    setData(obj)
-    setEdited(false)
+    const updateUiFlag = uiFlag;
+    for (let i in updateUiFlag) {
+      if (updateUiFlag[i] === true) {
+        updateUiFlag[i] = false;
+      }
+    }
+    setUiFlag(updateUiFlag);
+    setData(obj);
+    setEdited(false);
   }
 
   return (
@@ -26,21 +44,37 @@ export function EditArea({ obj }: { obj: object }) {
       <div id={styles.delete}>
         <FaTrash />
       </div>
-      {Object.entries(data).map(([key, value]) =>
+      {Object.entries(data).map(([key, value], index) =>
         key !== "_id" ? (
-          <div className={styles.editContainer}>
+          <div
+            className={styles.editContainer}
+            onDoubleClick={() => handleEdit(index)}
+          >
             <div className={styles.editLabel}>{key}</div>
-            <input id={key} type="text" value={value} onChange={handleChange} className={styles.editTextArea}/>
+            {!uiFlag[index] ? (
+              <div>{value}</div>
+            ) : (
+              <input
+                id={key}
+                type="text"
+                value={value}
+                onChange={handleChange}
+                className={styles.editTextArea}
+              ></input>
+            )}
           </div>
         ) : (
           <></>
         ),
       )}
-      {edited ? 
-      <div>
-        <button>Save</button>
-        <button onClick={handleCancel}>Cancel</button>
-      </div> : <></> }
+      {edited ? (
+        <div>
+          <button>Save</button>
+          <button onClick={handleCancel}>Cancel</button>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
