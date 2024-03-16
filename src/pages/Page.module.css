@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   background-color: var(--base-color);
+  box-sizing: border-box;
 }
 
 .container:hover {
@@ -16,4 +17,19 @@
 
 .trashContainer {
   display: none;
+}
+
+.sectionContainer {
+  flex-grow: 1;
+  border: solid 2px gray;
+  border-radius: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+.sectionSubContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }

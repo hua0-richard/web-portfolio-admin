@@ -3,6 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import styles from "./EditArea.module.css";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
+import { MdEdit } from "react-icons/md";
 
 export function EditArea({ obj }: { obj: object }) {
   const [data, setData] = useState(obj);
@@ -41,17 +42,33 @@ export function EditArea({ obj }: { obj: object }) {
     setEdited(false);
   }
 
+  function handleEditAll() {
+    const updateUiFlag = uiFlag;
+    for (let i in updateUiFlag) {
+      updateUiFlag[i] = true;
+    }
+    setUiFlag(updateUiFlag);
+    setEdited(true);
+  }
+
   return (
     <div id={styles.component}>
-      <div id={styles.delete}>
-        <FaTrash />
-      </div>
       <div className={styles.orderContainer}>
-        <div className={styles.orderControls}>
-          <FaAngleDown />
+        <div className={styles.orderContainerArrows}>
+          <div className={styles.orderControls}>
+            <FaAngleDown />
+          </div>
+          <div className={styles.orderControls}>
+            <FaAngleUp />
+          </div>
         </div>
-        <div className={styles.orderControls}>
-          <FaAngleUp />
+        <div className={styles.orderContainerArrows}>
+          <div className={styles.orderControlsEdit} onClick={handleEditAll}>
+            <MdEdit />
+          </div>
+          <div className={styles.orderControlsTrash}>
+            <FaTrash />
+          </div>
         </div>
       </div>
       {Object.entries(data).map(([key, value], index) =>
@@ -60,7 +77,7 @@ export function EditArea({ obj }: { obj: object }) {
             className={styles.editContainer}
             onDoubleClick={() => handleEdit(index)}
           >
-            <div className={styles.editLabel}>{key}</div>
+            <div className={styles.editLabel}>{key}:</div>
             {!uiFlag[index] ? (
               <div className={styles.editPreview}>{value}</div>
             ) : (

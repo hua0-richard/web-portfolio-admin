@@ -12,49 +12,93 @@
   }
 }
 
-#delete {
-  display: none;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-}
-
 .editContainer {
   width: 100%;
-  background: var(--accent-color);
-  margin-top: 4px;
-  margin-bottom: 4px;
   display: flex;
   justify-content: flex-start;
 }
 
 .editContainer:hover {
-  background-color: red;
+  background-color: grey;
 }
 
 .editLabel {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: bold;
   width: 20%;
 }
 
 .editTextArea {
+  color: lightgreen;
   width: 50%;
   font-family: monospace;
 }
 
 .editPreview {
+  color: lightgreen;
   font-size: 14px;
   font-family: monospace;
 }
 
 .orderContainer {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .orderControls {
+  width: 24px;
+  height: 24px;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
   margin: 4px;
   font-size: 18px;
 }
 
 .orderControls:hover {
-  color: red;
+  color: grey;
+  background-color: black;
+}
+
+.orderContainerArrows {
+  display: flex;
+  align-items: center;
+}
+
+.orderControlsTrash {
+  width: 24px;
+  height: 24px;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin: 4px;
+  font-size: 12px;
+}
+.orderControlsTrash:hover {
+  color: grey;
+  background-color: black;
+}
+
+.orderControlsEdit {
+  width: 24px;
+  height: 24px;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin: 4px;
+  font-size: 16px;
+}
+
+.orderControlsEdit:hover {
+  color: grey;
+  background-color: black;
 }

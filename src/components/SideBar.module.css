@@ -1,14 +1,13 @@
 @import "../index.css";
 #component {
   min-width: 200px;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   background-color: var(--base-color);
   border-right: 2px solid white;
-  padding: 12px;
+  height: 100vh;
 }
 
 .dbSection {

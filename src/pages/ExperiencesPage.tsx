@@ -19,7 +19,12 @@ export function ExperiencesPage() {
   }, []);
 
   function addExperience() {
-    setData({ experience: [...data.experience, { position: "", organisation: "", date: "", description: ""}]});
+    setData({
+      experience: [
+        ...data.experience,
+        { position: "", organisation: "", date: "", description: "" },
+      ],
+    });
   }
 
   return load ? (
@@ -47,16 +52,10 @@ export function ExperiencesPage() {
         </button>
       </div>
       {data.experience.map((d) => (
-        <div
-          style={{
-            flexGrow: "1",
-            backgroundColor: "orange",
-            width: "100%",
-            boxSizing: "border-box",
-            border: "2px solid white",
-          }}
-        >
-          <EditArea obj={d} />
+        <div className={styles.sectionSubContainer}>
+          <div className={styles.sectionContainer}>
+            <EditArea obj={d} />
+          </div>
         </div>
       ))}
     </div>
