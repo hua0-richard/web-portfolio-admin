@@ -12,7 +12,7 @@ import { Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
-    <div style={{ display: "flex", width: "100vw" }}>
+    <div style={{ display: "flex", width: "100%" }}>
       <SideBar></SideBar>
       <div
         style={{

@@ -4,7 +4,7 @@ import { EditArea } from "../components/EditArea.tsx";
 
 export function ExperiencesPage() {
   const [load, setLoad] = useState(false);
-  const [data, setData] = useState();
+  const [data, setData] = useState({ experience: [] });
   useEffect(() => {
     fetch("http://localhost:8000/user/experience")
       .then((res) => {
@@ -21,11 +21,11 @@ export function ExperiencesPage() {
       {data.experience.map((d) => (
         <div
           style={{
-            width: "100%",
-            border: "1px solid black",
-            margin: "8px",
-            borderRadius: "8px",
+            flexGrow: "1",
             backgroundColor: "orange",
+            width: "100%",
+            boxSizing: "border-box",
+            border: "2px solid white",
           }}
         >
           <EditArea obj={d} />
