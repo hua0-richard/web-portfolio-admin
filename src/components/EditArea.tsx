@@ -3,8 +3,9 @@ import { FaTrash } from "react-icons/fa";
 import styles from "./EditArea.module.css";
 
 export function EditArea({ obj }: { obj: object }) {
+  const backup = obj;
   const [data, setData] = useState(obj);
-  const [edit, setEdit] = useState(false);
+  const [edited, setEdited] = useState(false);
   useEffect(() => {
     console.log(obj);
   }, []);
@@ -12,6 +13,12 @@ export function EditArea({ obj }: { obj: object }) {
   function handleChange(e) {
     console.log(e.target.id);
     setData({ ...data, [e.target.id]: e.target.event });
+    setEdited(true)
+  }
+
+  function handleCancel() {
+    setData(obj)
+    setEdited(false)
   }
 
   return (
@@ -29,6 +36,11 @@ export function EditArea({ obj }: { obj: object }) {
           <></>
         ),
       )}
+      {edited ? 
+      <div>
+        <button>Save</button>
+        <button onClick={handleCancel}>Cancel</button>
+      </div> : <></> }
     </div>
   );
 }
