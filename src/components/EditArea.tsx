@@ -5,8 +5,8 @@ import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
-export function EditArea({ obj }: { obj: object }) {
-  const [data, setData] = useState(obj);
+export function EditArea({ obj, index, list, setObj, onOrder }: { list: any, obj: object, index: number, setObj:any, onOrder: any}) {
+  const [backup, updateBackup] = useState(obj) 
   const [uiFlag, setUiFlag] = useState(createArray(Object.keys(obj).length));
   const [edited, setEdited] = useState(false);
   useEffect(() => {
@@ -26,7 +26,10 @@ export function EditArea({ obj }: { obj: object }) {
 
   function handleChange(e) {
     console.log(e.target.id);
-    setData({ ...data, [e.target.id]: e.target.event });
+    let temp = { ...obj, [e.target.id]: e.target.event };
+    let temp_list = [...list.experience]
+    temp_list[index] = temp
+    setObj({experience: temp_list})
     setEdited(true);
   }
 
@@ -38,7 +41,10 @@ export function EditArea({ obj }: { obj: object }) {
       }
     }
     setUiFlag(updateUiFlag);
-    setData(obj);
+    let temp = backup;
+    let temp_list = [...list.experience]
+    temp_list[index] = temp
+    setObj({experience: temp_list})
     setEdited(false);
   }
 
@@ -51,14 +57,22 @@ export function EditArea({ obj }: { obj: object }) {
     setEdited(true);
   }
 
+  function handleOrderDown(index: number) {
+    onOrder(["DOWN", index])
+  }
+
+  function handleOrderUp(index: number) {
+    onOrder(["UP", index])
+  }
+
   return (
     <div id={styles.component}>
       <div className={styles.orderContainer}>
         <div className={styles.orderContainerArrows}>
-          <div className={styles.orderControls}>
+          <div className={styles.orderControls} onClick={() => handleOrderDown(index)}>
             <FaAngleDown />
           </div>
-          <div className={styles.orderControls}>
+          <div className={styles.orderControls} onClick={() => handleOrderUp(index)}>
             <FaAngleUp />
           </div>
         </div>
@@ -71,7 +85,7 @@ export function EditArea({ obj }: { obj: object }) {
           </div>
         </div>
       </div>
-      {Object.entries(data).map(([key, value], index) =>
+      {Object.entries(obj).map(([key, value], index) =>
         key !== "_id" ? (
           <div
             className={styles.editContainer}

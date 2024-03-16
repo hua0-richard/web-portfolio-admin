@@ -1,5 +1,5 @@
 import styles from "./Page.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Component } from "react";
 import { EditArea } from "../components/EditArea.tsx";
 import { IoIosAddCircle } from "react-icons/io";
 
@@ -18,6 +18,7 @@ export function ExperiencesPage() {
       });
   }, []);
 
+
   function addExperience() {
     setData({
       experience: [
@@ -25,6 +26,20 @@ export function ExperiencesPage() {
         { position: "", organisation: "", date: "", description: "" },
       ],
     });
+  }
+
+  function reorder(ds:any) {
+    let temp = [...data.experience]
+    if (ds[0]==="UP") {
+      let p = temp[ds[1]]
+      temp[ds[1]] = temp[(ds[1] - 1) % temp.length]
+      temp[(ds[1] - 1) % temp.length] = p;
+    } else {
+      let p = temp[ds[1]]
+      temp[ds[1]] = temp[(ds[1] + 1) % temp.length]
+      temp[(ds[1] + 1) % temp.length] = p;
+    }
+    setData({experience: temp})
   }
 
   return load ? (
@@ -51,10 +66,10 @@ export function ExperiencesPage() {
           Add
         </button>
       </div>
-      {data.experience.map((d) => (
+      {data.experience.map((d, index) => (
         <div className={styles.sectionSubContainer}>
           <div className={styles.sectionContainer}>
-            <EditArea obj={d} />
+            <EditArea obj={d} index={index} onOrder={reorder} list={data} setObj={setData}/>
           </div>
         </div>
       ))}
