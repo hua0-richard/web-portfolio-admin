@@ -77,6 +77,12 @@ export function EditArea({
     onOrder(["UP", index]);
   }
 
+  function handleDelete() {
+    let temp = [...list.experience]
+    temp.splice(index, index)
+    setObj({ experience: temp });
+  }
+
   return (
     <div id={styles.component}>
       <div className={styles.orderContainer}>
@@ -98,7 +104,7 @@ export function EditArea({
           <div className={styles.orderControlsEdit} onClick={handleEditAll}>
             <MdEdit />
           </div>
-          <div className={styles.orderControlsTrash}>
+          <div className={styles.orderControlsTrash} onClick={handleDelete}>
             <FaTrash />
           </div>
         </div>

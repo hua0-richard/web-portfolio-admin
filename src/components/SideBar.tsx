@@ -1,4 +1,3 @@
-import { BsDatabaseFill } from "react-icons/bs";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import styles from "./SideBar.module.css";
 import { Link } from "react-router-dom";
