@@ -79,7 +79,7 @@ export function EditArea({
 
   function handleDelete() {
     let temp = [...list.experience]
-    temp.splice(index, index)
+    temp.splice(index, 1)
     setObj({ experience: temp });
   }
 
