@@ -18,7 +18,6 @@ export function ExperiencesPage() {
       });
   }, []);
 
-
   function addExperience() {
     setData({
       experience: [
@@ -28,27 +27,27 @@ export function ExperiencesPage() {
     });
   }
 
-  function reorder(ds:any) {
-    let temp = [...data.experience]
-    let save = temp[ds[1]]
+  function reorder(ds: any) {
+    let temp = [...data.experience];
+    let save = temp[ds[1]];
     if (ds[0] === "UP") {
       if (ds[1] === 0) {
-        temp[0] = temp[temp.length - 1]
-        temp[temp.length - 1] = save
+        temp[0] = temp[temp.length - 1];
+        temp[temp.length - 1] = save;
       } else {
-        temp[ds[1]] = temp[ds[1] - 1] 
-        temp[ds[1] - 1] = save
+        temp[ds[1]] = temp[ds[1] - 1];
+        temp[ds[1] - 1] = save;
       }
     } else if (ds[0] === "DOWN") {
       if (ds[1] === temp.length - 1) {
-        temp[temp.length - 1] = temp[0]
-        temp[0] = save
+        temp[temp.length - 1] = temp[0];
+        temp[0] = save;
       } else {
-        temp[ds[1]] = temp[ds[1] + 1]
-        temp[ds[1] + 1] = save
+        temp[ds[1]] = temp[ds[1] + 1];
+        temp[ds[1] + 1] = save;
       }
     }
-    setData({experience: temp})
+    setData({ experience: temp });
   }
 
   return load ? (
@@ -74,17 +73,19 @@ export function ExperiencesPage() {
           </div>
           Add
         </button>
-        <button>
-          Save
-        </button>
-        <button>
-          Cancel
-        </button>
+        <button>Save</button>
+        <button>Cancel</button>
       </div>
       {data.experience.map((d, index) => (
         <div className={styles.sectionSubContainer}>
           <div className={styles.sectionContainer}>
-            <EditArea obj={d} index={index} onOrder={reorder} list={data} setObj={setData}/>
+            <EditArea
+              obj={d}
+              index={index}
+              onOrder={reorder}
+              list={data}
+              setObj={setData}
+            />
           </div>
         </div>
       ))}

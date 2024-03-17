@@ -5,8 +5,20 @@ import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
-export function EditArea({ obj, index, list, setObj, onOrder }: { list: any, obj: object, index: number, setObj:any, onOrder: any}) {
-  const [backup, updateBackup] = useState(obj) 
+export function EditArea({
+  obj,
+  index,
+  list,
+  setObj,
+  onOrder,
+}: {
+  list: any;
+  obj: object;
+  index: number;
+  setObj: any;
+  onOrder: any;
+}) {
+  const [backup, updateBackup] = useState(obj);
   const [uiFlag, setUiFlag] = useState(createArray(Object.keys(obj).length));
   const [edited, setEdited] = useState(false);
   useEffect(() => {
@@ -27,9 +39,9 @@ export function EditArea({ obj, index, list, setObj, onOrder }: { list: any, obj
   function handleChange(e) {
     console.log(e.target.id);
     let temp = { ...obj, [e.target.id]: e.target.event };
-    let temp_list = [...list.experience]
-    temp_list[index] = temp
-    setObj({experience: temp_list})
+    let temp_list = [...list.experience];
+    temp_list[index] = temp;
+    setObj({ experience: temp_list });
     setEdited(true);
   }
 
@@ -42,9 +54,9 @@ export function EditArea({ obj, index, list, setObj, onOrder }: { list: any, obj
     }
     setUiFlag(updateUiFlag);
     let temp = backup;
-    let temp_list = [...list.experience]
-    temp_list[index] = temp
-    setObj({experience: temp_list})
+    let temp_list = [...list.experience];
+    temp_list[index] = temp;
+    setObj({ experience: temp_list });
     setEdited(false);
   }
 
@@ -58,21 +70,27 @@ export function EditArea({ obj, index, list, setObj, onOrder }: { list: any, obj
   }
 
   function handleOrderDown(index: number) {
-    onOrder(["DOWN", index])
+    onOrder(["DOWN", index]);
   }
 
   function handleOrderUp(index: number) {
-    onOrder(["UP", index])
+    onOrder(["UP", index]);
   }
 
   return (
     <div id={styles.component}>
       <div className={styles.orderContainer}>
         <div className={styles.orderContainerArrows}>
-          <div className={styles.orderControls} onClick={() => handleOrderDown(index)}>
+          <div
+            className={styles.orderControls}
+            onClick={() => handleOrderDown(index)}
+          >
             <FaAngleDown />
           </div>
-          <div className={styles.orderControls} onClick={() => handleOrderUp(index)}>
+          <div
+            className={styles.orderControls}
+            onClick={() => handleOrderUp(index)}
+          >
             <FaAngleUp />
           </div>
         </div>
