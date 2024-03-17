@@ -8,7 +8,7 @@ export function ExperiencesPage() {
   const [load, setLoad] = useState(false);
   const [data, setData] = useState({ experience: [] });
   useEffect(() => {
-    fetch("http://localhost:8000/user/experience")
+    fetch(`${import.meta.env.VITE_SERVER}user/experience`)
       .then((res) => {
         return res.json();
       })

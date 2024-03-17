@@ -7,7 +7,7 @@ export function AboutPage() {
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:8000/user/about")
+    fetch(`${import.meta.env.VITE_SERVER}user/about`)
       .then((res) => {
         return res.json();
       })
@@ -18,11 +18,15 @@ export function AboutPage() {
       });
   }, []);
   return load ? (
-    <div className={styles.container}>
+    <>
       {data.about.map((d) => (
-        <EditArea obj={d} />
+        <div className={styles.sectionSubContainer}>
+          <div className={styles.sectionContainer}>
+            <EditArea obj={d} />
+          </div>
+        </div>
       ))}
-    </div>
+    </>
   ) : (
     <></>
   );
