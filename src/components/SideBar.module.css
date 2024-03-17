@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   background-color: var(--base-color);
   border-right: 2px solid white;
   height: 100vh;
@@ -19,12 +19,15 @@
   align-items: center;
   border-radius: 8px;
   padding: 4px;
-  width: 100%;
+  width: 90%;
   background-color: var(--base-tertiary);
+  color: white;
+  text-decoration: none;
 }
 
 .dbSection:hover {
-  background: var(--accent-color);
+  background: grey;
+  /* background: var(--accent-color); */
 }
 
 .icon {

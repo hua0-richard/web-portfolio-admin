@@ -7,8 +7,8 @@ export function SideBar() {
     <div id={styles.component}>
       <div>Admin</div>
 
-      <Link to="/about">
-        <div className={styles.dbSection}>
+      <Link to="/about" className={styles.dbSection}>
+        <div>
           <div style={{ display: "flex", alignItems: "center" }}>
             <div className={styles.icon}>🥸</div>
             About
@@ -23,13 +23,12 @@ export function SideBar() {
         </div>
       </div>
 
-      <Link to="/experiences">
-        <div className={styles.dbSection}>
+      <Link to="/experiences" className={styles.dbSection}>
+        <div>
           <div style={{ display: "flex", alignItems: "center" }}>
             <div className={styles.icon}>🧪</div>
             Experience
           </div>
-          <MdOutlineKeyboardArrowDown />
         </div>
       </Link>
 
