@@ -30,14 +30,23 @@ export function ExperiencesPage() {
 
   function reorder(ds:any) {
     let temp = [...data.experience]
-    if (ds[0]==="UP") {
-      let p = temp[ds[1]]
-      temp[ds[1]] = temp[(ds[1] - 1) % temp.length]
-      temp[(ds[1] - 1) % temp.length] = p;
-    } else {
-      let p = temp[ds[1]]
-      temp[ds[1]] = temp[(ds[1] + 1) % temp.length]
-      temp[(ds[1] + 1) % temp.length] = p;
+    let save = temp[ds[1]]
+    if (ds[0] === "UP") {
+      if (ds[1] === 0) {
+        temp[0] = temp[temp.length - 1]
+        temp[temp.length - 1] = save
+      } else {
+        temp[ds[1]] = temp[ds[1] - 1] 
+        temp[ds[1] - 1] = save
+      }
+    } else if (ds[0] === "DOWN") {
+      if (ds[1] === temp.length - 1) {
+        temp[temp.length - 1] = temp[0]
+        temp[0] = save
+      } else {
+        temp[ds[1]] = temp[ds[1] + 1]
+        temp[ds[1] + 1] = save
+      }
     }
     setData({experience: temp})
   }
