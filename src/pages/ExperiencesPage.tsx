@@ -2,6 +2,7 @@ import styles from "./Page.module.css";
 import { useEffect, useState } from "react";
 import { EditArea } from "../components/EditArea.tsx";
 import { IoIosAddCircle } from "react-icons/io";
+import { Button } from "../components/Button.tsx";
 
 export function ExperiencesPage() {
   const [load, setLoad] = useState(false);
@@ -73,8 +74,8 @@ export function ExperiencesPage() {
           </div>
           Add
         </button>
-        <button>Save</button>
-        <button>Cancel</button>
+        <Button label="Save" />
+        <Button label="Cancel" />
       </div>
       {data.experience.map((d, index) => (
         <div className={styles.sectionSubContainer}>

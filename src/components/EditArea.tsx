@@ -4,6 +4,7 @@ import styles from "./EditArea.module.css";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
+import { Button } from "../components/Button";
 
 export function EditArea({
   obj,
@@ -78,8 +79,8 @@ export function EditArea({
   }
 
   function handleDelete() {
-    let temp = [...list.experience]
-    temp.splice(index, 1)
+    let temp = [...list.experience];
+    temp.splice(index, 1);
     setObj({ experience: temp });
   }
 
@@ -134,8 +135,8 @@ export function EditArea({
       )}
       {edited ? (
         <div>
-          <button>Save</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <Button label="Save" />
+          <Button label="Cancel" onClick={handleCancel} />
         </div>
       ) : (
         <></>
